@@ -11,8 +11,8 @@ $(document).ready(function(){
     hh.toggleClass('snakeblock');
     hh.css({
         backgroundColor: 'red',
-        left: Math.floor(Math.random()*300) + 'px',
-        top: Math.floor(Math.random()*300) + 'px'
+        left: Math.floor(Math.random()*285) + 'px',
+        top: Math.floor(Math.random()*285) + 'px'
     });
 
 
@@ -30,11 +30,33 @@ $(document).ready(function(){
     var tt = $('#tail');
     tt.toggleClass('snakeblock');
     tt.css({
-        'background-color': 'blue',
-        top: hh.css('top'),
-        left: parseInt(hh.css('left')) + 15 + 'px'
+        'background-color': 'blue'
+       // top: hh.css('top'),
+      //  left: parseInt(hh.css('left')) + 15 + 'px'
     });
-
+    var rand = Math.random() * 10;
+    if(rand<=2.5){
+        tt.css({
+            top: hh.css('top'),
+            left: parseInt(hh.css('left')) - 15 +'px'
+        })
+    } else if(rand > 2.5 && rand <=5){
+        tt.css({
+            top: hh.css('top'),
+            left: parseInt(hh.css('left')) + 15 +'px'
+        })
+    } else if(rand > 5 && rand <= 7.5){
+        tt.css({
+            top: parseInt(hh.css('top')) + 15 + 'px',
+            left: hh.css('left')
+        })
+    } else{
+        tt.css({
+            top: parseInt(hh.css('top')) + 25 + 'px',
+            left: hh.css('left')
+        })
+    }
+console.log(rand);
     /*snake1.style.width = '10px';
     snake1.style.height = '10px';
     snake1.style.border = '1px solid white';
